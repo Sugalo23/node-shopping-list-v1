@@ -25,10 +25,17 @@ ShoppingList.create('beans', 2);
 ShoppingList.create('tomatoes', 3);
 ShoppingList.create('peppers', 4);
 
+recipes.create('chocolate milk', ['cocoa', 'milk', 'sugar']);
+recipes.create('Peanut Butter Sandwich', ['bread', 'peanut butter']);
+
 // when the root of this route is called with GET, return
 // all current ShoppingList items by calling `ShoppingList.get()`
 app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
+});
+
+app.get('/recipes', (req, res) => {
+  res.json(recipes.get());
 });
 
 app.listen(process.env.PORT || 8080, () => {
